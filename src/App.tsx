@@ -1,3 +1,4 @@
+import { Routes, Route, Navigate } from "react-router-dom";
 import ShoppingListGrid from 'components/shopping-list-grid/shopping-list-grid';
 import './App.scss';
 import Logo from 'assets/logo.png';
@@ -11,7 +12,10 @@ function App() {
         </header>
 
         <div className="main-content">
-            <ShoppingListGrid/>
+            <Routes>
+                <Route path="/" element={ <ShoppingListGrid/> }/>
+                <Route path="*" element={ <Navigate replace to="/" /> }/>
+            </Routes>
         </div>
     </div>
   );
