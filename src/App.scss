@@ -1,0 +1,29 @@
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 10px;
+
+  .header {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-content {
+    border: 1px solid green;
+    margin-top: 10px;
+  }
+
+  .btn {
+    background-color: white;
+    border-radius: 100vmax;
+    border: none;
+    color: #F7C159;
+    padding: 15px 20px;
+    display: block;
+    height: max-content;
+    font-size: 12pt;
+  }
+}
