@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Update project with typescript &amp; scss">
+    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Update paths with absolute paths">
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list-grid/shopping-list-grid.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/shopping-list-grid/shopping-list-grid.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list-item/shopping-list-item.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list-item/shopping-list-item.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +72,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/assets" />
     </key>
   </component>
@@ -81,7 +88,7 @@
       <workItem from="1659622879096" duration="598000" />
       <workItem from="1659690058576" duration="4704000" />
       <workItem from="1660228671351" duration="598000" />
-      <workItem from="1660422625692" duration="4624000" />
+      <workItem from="1660422625692" duration="16333000" />
     </task>
     <task id="LOCAL-00001" summary="Update project with typescript &amp; scss">
       <created>1660484953834</created>
@@ -90,7 +97,28 @@
       <option name="project" value="LOCAL" />
       <updated>1660484953834</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update project with typescript &amp; scss">
+      <created>1660485745620</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660485745620</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update project with typescript &amp; scss">
+      <created>1660485772754</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660485772754</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update paths with absolute paths">
+      <created>1660493482905</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660493482905</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update project with typescript &amp; scss" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update project with typescript &amp; scss" />
+    <MESSAGE value="Update paths with absolute paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update paths with absolute paths" />
   </component>
 </project>

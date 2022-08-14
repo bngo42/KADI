@@ -1,0 +1,40 @@
+.shopping-list-item {
+  width: max-content;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+  }
+
+  .list-header {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .list-description {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-top: 5px;
+
+    .list-name, .list-date {
+      text-align: center;
+    }
+
+    .list-name {
+      font-weight: bold;
+    }
+
+    .list-date {
+      font-size: 12pt;
+    }
+  }
+}
