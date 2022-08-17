@@ -8,11 +8,11 @@ const ShoppingListGrid = () => {
 
     return  <div className="shopping-list-grid">
         {
-            dataList.map((item, index) => (
-                <Link to={ '/list/' }>
-                    <ShoppingListItem key={ index }/>
+            dataList?.length ? dataList.map((item, index) => (
+                <Link to={ '/list/' } key={ index }>
+                    <ShoppingListItem/>
                 </Link>
-            ))
+            )) : <span>Aucune liste de course a afficher.</span>
         }
     </div>
 }

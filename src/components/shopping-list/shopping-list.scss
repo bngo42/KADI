@@ -1,0 +1,65 @@
+.shopping-list-layout {
+  padding: 25px;
+
+  .shopping-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .list-title {
+      font-weight: bold;
+      font-size: 32pt;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      font-size: 20pt;
+    }
+  }
+
+  .shopping-list {
+    margin-top: 25px;
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+
+    .shopping-list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .shopping-list-add-button {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      background-color: #F7C159;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+      padding: 5px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    .shopping-list-total {
+      margin-top: 15px;
+      color: black;
+      font-weight: bold;
+      font-size: 24pt;
+      text-align: right;
+
+      .total-label {
+        color: grey;
+      }
+
+      .total-value {
+        margin-left: 10px;
+      }
+    }
+  }
+}

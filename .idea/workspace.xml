@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Init grid list &amp; list item">
+    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Add basic routing">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/view.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/shopping-list-grid/shopping-list-grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-grid/shopping-list-grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +90,7 @@
       <workItem from="1659622879096" duration="598000" />
       <workItem from="1659690058576" duration="4704000" />
       <workItem from="1660228671351" duration="598000" />
-      <workItem from="1660422625692" duration="19477000" />
+      <workItem from="1660422625692" duration="40347000" />
     </task>
     <task id="LOCAL-00001" summary="Update project with typescript &amp; scss">
       <created>1660484953834</created>
@@ -123,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660497943578</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add basic routing">
+      <created>1660511614266</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660511614266</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +156,7 @@
     <MESSAGE value="Update project with typescript &amp; scss" />
     <MESSAGE value="Update paths with absolute paths" />
     <MESSAGE value="Init grid list &amp; list item" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init grid list &amp; list item" />
+    <MESSAGE value="Add basic routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add basic routing" />
   </component>
 </project>

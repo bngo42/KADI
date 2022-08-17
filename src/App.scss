@@ -25,5 +25,15 @@
     display: block;
     height: max-content;
     font-size: 12pt;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &.transparent {
+      background-color: transparent;
+      color: white;
+    }
   }
 }
