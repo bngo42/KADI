@@ -1,0 +1,39 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: max-content;
+
+  input[type=checkbox] {
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: #DCDCDC;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:checked {
+      background-color: #F7C159;
+      color: #FFFFFF;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+
+  }
+
+  .checkbox-label {
+    height: 100%;
+    user-select: none;
+    margin-left: 5px;
+  }
+}

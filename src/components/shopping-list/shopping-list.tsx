@@ -24,9 +24,11 @@ const ShoppingList = () => {
     <div className="shopping-list">
       <table>
         <thead>
-          <th>Produit</th>
-          <th>Quantité</th>
-          <th>Prix</th>
+          <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+          </tr>
         </thead>
 
         <tbody>
