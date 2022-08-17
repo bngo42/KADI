@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Add basic routing">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" afterDir="false" />
+    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Add shopping list component&#10;Also updating navigation with data">
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/models/view.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shopping-list-grid/shopping-list-grid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-grid/shopping-list-grid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,7 @@
       <workItem from="1659622879096" duration="598000" />
       <workItem from="1659690058576" duration="4704000" />
       <workItem from="1660228671351" duration="598000" />
-      <workItem from="1660422625692" duration="40347000" />
+      <workItem from="1660422625692" duration="42019000" />
     </task>
     <task id="LOCAL-00001" summary="Update project with typescript &amp; scss">
       <created>1660484953834</created>
@@ -134,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660511614266</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add shopping list component&#10;Also updating navigation with data">
+      <created>1660696319867</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660696319867</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +161,7 @@
     <MESSAGE value="Update paths with absolute paths" />
     <MESSAGE value="Init grid list &amp; list item" />
     <MESSAGE value="Add basic routing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add basic routing" />
+    <MESSAGE value="Add shopping list component&#10;Also updating navigation with data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add shopping list component&#10;Also updating navigation with data" />
   </component>
 </project>
