@@ -6,6 +6,7 @@ import ShoppingList from "components/shopping-list/shopping-list";
 
 import Logo from 'assets/logo.png';
 import './App.scss';
+import {ViewMode} from "./models/view.model";
 
 function App() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="wrapper">
       <header className="header">
-        <img height="100%" src={ Logo } alt="Logo"/>
+        <img height="75%" src={ Logo } alt="Logo"/>
         {
           currentLocation === '/' ?
           <button className="btn" onClick={ createNewList }>Ajouter une liste</button>
@@ -36,7 +37,7 @@ function App() {
   );
 
   function createNewList() {
-    navigate("/list", { state: { newList: true } });
+    navigate("/list", { state: { view: ViewMode.Edit } });
   }
 }
 
