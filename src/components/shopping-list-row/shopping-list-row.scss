@@ -1,8 +1,31 @@
 .shopping-list-row {
   color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
+  width: 100%;
+  user-select: none;
 
   td {
     padding: 10px 5px;
+  }
+
+  .delete-btn {
+    color: #F77F59;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .product-name {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .product-label {
+      margin-left: 5px;
+    }
   }
 }

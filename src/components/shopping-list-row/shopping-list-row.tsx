@@ -1,32 +1,43 @@
 import {useContext, useState} from "react";
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
+
 import Checkbox from "components/checkbox/checkbox";
 import {CurrentViewMode} from "components/shopping-list/shopping-list";
 import {ViewMode} from "models/view.model";
 
 import './shopping-list-row.scss';
 
-const ShoppingListRow = () => {
+interface ShoppingListRowConfig {
+  onDelete: () => void
+  data: { id: string }
+}
+
+const ShoppingListRow = (props: ShoppingListRowConfig) => {
   const Current = useContext(CurrentViewMode);
   const [isChecked, setIsChecked] = useState(false);
   const handleChange = () => setIsChecked(isChecked);
 
+  const productName = 'Product Name';
+
   return <tr className="shopping-list-row">
     {
-      Current === ViewMode.Edit ? <>
-        <td width="80%" height="100%">
-          <Checkbox label={'Product name'} value={isChecked} onValueChange={handleChange}/>
-        </td>
-        <td width="10%" height="100%">Edit 2</td>
-        <td width="10%" height="100%">Edit 3</td>
+      Current === ViewMode.Default ? <>
+        <td><Checkbox label={productName + ' ' + props.data.id} value={isChecked} onValueChange={handleChange}/></td>
+        <td>Edit 2</td>
+        <td>Edit 3</td>
       </>
       :
       <>
-        <td width="80%" height="100%">
-          <Checkbox label={'Product name'} value={isChecked} onValueChange={handleChange}/>
+        <td>
+          <div className="product-name">
+            <FontAwesomeIcon icon={ faXmark } className="delete-btn" onClick={ props.onDelete }/>
+            <span className="product-label">{productName + ' ' + props.data.id}</span>
+          </div>
         </td>
-        <td width="10%" height="100%">Normal 2</td>
-        <td width="10%" height="100%">Normal 3</td>
+        <td>Normal 2</td>
+        <td>Normal 3</td>
       </>
     }
   </tr>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Add basic checkbox component">
+    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/shopping-list.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/shopping-list.model.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +66,8 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "ts.external.directory.path": "/Users/BNgo/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/222.3345.108/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "settings.editor.selected.configurable": "project.propVCSSupport.ChangelistConflict",
+    "ts.external.directory.path": "/Users/BNgo/Repository/kadi/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -85,7 +89,7 @@
       <workItem from="1659622879096" duration="598000" />
       <workItem from="1659690058576" duration="4704000" />
       <workItem from="1660228671351" duration="598000" />
-      <workItem from="1660422625692" duration="50696000" />
+      <workItem from="1660422625692" duration="56254000" />
     </task>
     <task id="LOCAL-00001" summary="Update project with typescript &amp; scss">
       <created>1660484953834</created>
@@ -157,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660702277013</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Provide view mode to list row&#10;Conditionally update row base on mode">
+      <created>1660824735282</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1660824735282</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +194,7 @@
     <MESSAGE value="Add shopping list component&#10;Also updating navigation with data" />
     <MESSAGE value="Init shopping list row&#10;Also adding shopping list model" />
     <MESSAGE value="Add basic checkbox component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add basic checkbox component" />
+    <MESSAGE value="Provide view mode to list row&#10;Conditionally update row base on mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Provide view mode to list row&#10;Conditionally update row base on mode" />
   </component>
 </project>

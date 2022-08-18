@@ -12,7 +12,7 @@ import './shopping-list.scss';
 export const CurrentViewMode = createContext(ViewMode.Edit);
 
 const ShoppingList = () => {
-  const [ listData, setListData ] = useState([1,2,3]);
+  const [ listData, setListData ] = useState([{id: '1'},{id: '2'},{id: '3'}]);
   const [ listMode, setListMode ] = useState(ViewMode.Default);
   const location = useLocation();
 
@@ -25,7 +25,16 @@ const ShoppingList = () => {
   }, [location]);
 
   const addItem = () => {
-    setListData(prevState => [...prevState, 1]);
+    setListData(prevState => [...prevState, { id: '1'}]);
+  };
+
+  const deleteItem = (id: string) => {
+    const tempList = listData.filter(item => item.id !== id);
+    setListData(tempList);
+  };
+
+  const toggleMode = () => {
+    setListMode(listMode === ViewMode.Default ? ViewMode.Edit : ViewMode.Default);
   }
 
   return <div className="shopping-list-layout">
@@ -33,8 +42,8 @@ const ShoppingList = () => {
       <div className="shopping-list-header">
         <span className="list-title">Shopping list Title</span>
 
-        <button className="btn transparent">
-          <FontAwesomeIcon icon={ faPen } />
+        <button className="btn" onClick={ toggleMode }>
+          <FontAwesomeIcon icon={ listMode === ViewMode.Default ? faPen : faFloppyDisk } />
         </button>
       </div>
 
@@ -42,17 +51,17 @@ const ShoppingList = () => {
         <table>
           <thead>
             <tr>
-              <th>Produit</th>
-              <th>Quantité</th>
-              <th>Prix</th>
+              <th style={{ width: '70%' }}>Produit</th>
+              <th style={{ width: '15%' }}>Quantité</th>
+              <th style={{ width: '15%' }}>Prix</th>
             </tr>
           </thead>
 
           <tbody>
             {
-              listData?.length && listData.map((data, index) => {
-                return <ShoppingListRow key={ index } />
-              })
+              listData?.length ? listData.map((data, index) => {
+                return <ShoppingListRow key={ index } data={ data } onDelete={ () => deleteItem(data.id) } />
+              }) : null
             }
           </tbody>
         </table>
