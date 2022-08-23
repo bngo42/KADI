@@ -102,7 +102,11 @@ const ShoppingList = () => {
           <tbody>
             {
               listData?.data?.length ? listData.data?.map((data, index) => {
-                return <ShoppingListRow key={ index } data={ data } onDelete={ () => deleteItem(data.id) } />
+                return <ShoppingListRow
+                          key={index}
+                          data={data}
+                          onDelete={() => deleteItem(data.id)}
+                          itemCount={listData.data?.length || 0}/>
               }) : null
             }
           </tbody>

@@ -11,12 +11,13 @@ import {ViewMode} from "models/view.model";
 
 import './shopping-list-row.scss';
 
-interface ShoppingListRowConfig {
+interface ShoppingListRowProps {
   onDelete: () => void
   data: ShoppingListRowData
+  itemCount: number;
 }
 
-const ShoppingListRow = (props: ShoppingListRowConfig) => {
+const ShoppingListRow = (props: ShoppingListRowProps) => {
   const Current = useContext(CurrentViewMode);
   const [isChecked, setIsChecked] = useState(false);
   const handleChange = () => setIsChecked(isChecked);
@@ -32,7 +33,7 @@ const ShoppingListRow = (props: ShoppingListRowConfig) => {
       <>
         <td>
           <div className="product-name">
-            <FontAwesomeIcon icon={ faXmark } className="delete-btn" onClick={ props.onDelete }/>
+            { (props.itemCount > 1) && <FontAwesomeIcon icon={ faXmark } className="delete-btn" onClick={ props.onDelete }/> }
             <span className="product-label">{ props.data.name }</span>
           </div>
         </td>
