@@ -2,22 +2,26 @@ import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {createContext, useEffect, useState} from "react";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPen, faPlus, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
+import {faFloppyDisk, faPen, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 import ShoppingListRow from "components/shopping-list-row/shopping-list-row";
 
-import {getParsedLocalStorageItem} from "utils/storage.utils";
+import ListService from "services/list.service";
 import {ShoppingListData} from "models/shopping-list.model";
 import {ViewMode} from "models/view.model";
 
 import './shopping-list.scss';
+
+type ShoppingListRouteParams = {
+  listId: string;
+}
 
 export const CurrentViewMode = createContext(ViewMode.Edit);
 
 const ShoppingList = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const params = useParams()
+  const { listId } = useParams<ShoppingListRouteParams>();
 
   const [ listData, setListData ] = useState<ShoppingListData>({});
   const [ listMode, setListMode ] = useState(ViewMode.Default);
@@ -28,18 +32,16 @@ const ShoppingList = () => {
     if (data?.view === ViewMode.Edit) {
       setListMode(ViewMode.Edit);
     } else {
-      if (params?.id) {
-        const shoppingLists: ShoppingListData[] = getParsedLocalStorageItem('shopping-lists');
+      const currentList = ListService.getList(listId);
 
-        if (shoppingLists) {
-          const currentList = shoppingLists.find(list => list.id === params.id);
+      if (currentList) {
+        setListData(currentList);
+      } else if (listId === 'new') {
+        const newListItem = ListService.getNewItemRow('Nouveau produit', 1, 1);
+        const newListData = ListService.createListObject('Nouvelle liste', [newListItem]);
 
-          if (currentList) {
-            setListData(currentList);
-          } else {
-            navigate('/');
-          }
-        }
+        setListMode(ViewMode.Edit);
+        setListData(newListData);
       } else {
         navigate('/');
       }
@@ -47,7 +49,7 @@ const ShoppingList = () => {
   }, [location]);
 
   const addItem = () => {
-    const newProduct = { id: '1', name: 'abc', quantity: 1, price: 1};
+    const newProduct = ListService.getNewItemRow('Nouveau produit', 1, 0);
     const newListData = {...listData};
 
     if (newListData?.data) {
@@ -70,7 +72,12 @@ const ShoppingList = () => {
   };
 
   const toggleMode = () => {
-    setListMode(listMode === ViewMode.Default ? ViewMode.Edit : ViewMode.Default);
+    if (listMode === ViewMode.Default) {
+      setListMode(ViewMode.Edit);
+      ListService.saveList(listData);
+    } else {
+      setListMode(ViewMode.Default);
+    }
   }
 
   return <div className="shopping-list-layout">
