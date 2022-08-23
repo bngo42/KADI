@@ -25,8 +25,8 @@ const ShoppingListRow = (props: ShoppingListRowConfig) => {
     {
       Current === ViewMode.Default ? <>
         <td><Checkbox label={productName + ' ' + props.data.id} value={isChecked} onValueChange={handleChange}/></td>
-        <td>Edit 2</td>
-        <td>Edit 3</td>
+        <td>Default 2</td>
+        <td>Default 3</td>
       </>
       :
       <>
@@ -36,8 +36,8 @@ const ShoppingListRow = (props: ShoppingListRowConfig) => {
             <span className="product-label">{productName + ' ' + props.data.id}</span>
           </div>
         </td>
-        <td>Normal 2</td>
-        <td>Normal 3</td>
+        <td>Edit 2</td>
+        <td>Edit 3</td>
       </>
     }
   </tr>

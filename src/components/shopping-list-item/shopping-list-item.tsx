@@ -1,14 +1,25 @@
 import Paper from 'assets/paper.png';
+
+import {ShoppingListData} from "models/shopping-list.model";
+
 import './shopping-list-item.scss';
 
-const ShoppingListItem = () => {
+interface ShoppingListItemProps {
+  data: ShoppingListData
+}
+
+const formatDate = (date: string | undefined) => {
+  return date ? new Date(date).toLocaleString() : '';
+}
+
+const ShoppingListItem = (props: ShoppingListItemProps) => {
     return <div className="shopping-list-item">
         <div className="list-header">
             <img height="100%" src={ Paper } alt="Liste"/>
         </div>
         <div className="list-description">
-            <span className="list-name">Ma liste de course 1</span>
-            <span className="list-date">24/07/2022 - 17:54</span>
+            <span className="list-name">{ props.data.title }</span>
+            <span className="list-date">{ formatDate(props.data.date) }</span>
         </div>
     </div>
 }

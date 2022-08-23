@@ -1,10 +1,13 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {createContext, useEffect, useState} from "react";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPen, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faPen, faPlus, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
 import ShoppingListRow from "components/shopping-list-row/shopping-list-row";
+
+import {getParsedLocalStorageItem} from "utils/storage.utils";
+import {ShoppingListData} from "models/shopping-list.model";
 import {ViewMode} from "models/view.model";
 
 import './shopping-list.scss';
@@ -12,25 +15,58 @@ import './shopping-list.scss';
 export const CurrentViewMode = createContext(ViewMode.Edit);
 
 const ShoppingList = () => {
-  const [ listData, setListData ] = useState([{id: '1'},{id: '2'},{id: '3'}]);
-  const [ listMode, setListMode ] = useState(ViewMode.Default);
   const location = useLocation();
+  const navigate = useNavigate();
+  const params = useParams()
+
+  const [ listData, setListData ] = useState<ShoppingListData>({});
+  const [ listMode, setListMode ] = useState(ViewMode.Default);
 
   useEffect(() => {
     const data: any = location.state;
 
     if (data?.view === ViewMode.Edit) {
       setListMode(ViewMode.Edit);
+    } else {
+      if (params?.id) {
+        const shoppingLists: ShoppingListData[] = getParsedLocalStorageItem('shopping-lists');
+
+        if (shoppingLists) {
+          const currentList = shoppingLists.find(list => list.id === params.id);
+
+          if (currentList) {
+            setListData(currentList);
+          } else {
+            navigate('/');
+          }
+        }
+      } else {
+        navigate('/');
+      }
     }
   }, [location]);
 
   const addItem = () => {
-    setListData(prevState => [...prevState, { id: '1'}]);
+    const newProduct = { id: '1', name: 'abc', quantity: 1, price: 1};
+    const newListData = {...listData};
+
+    if (newListData?.data) {
+      newListData.data.push(newProduct);
+      setListData(newListData);
+    }
   };
 
   const deleteItem = (id: string) => {
-    const tempList = listData.filter(item => item.id !== id);
-    setListData(tempList);
+    const newList = listData?.data?.filter(item => item.id !== id);
+
+    if (newList) {
+      const newListData: ShoppingListData = {...listData};
+
+      if (newListData?.data) {
+        newListData.data = newList;
+        setListData(newListData);
+      }
+    }
   };
 
   const toggleMode = () => {
@@ -40,8 +76,7 @@ const ShoppingList = () => {
   return <div className="shopping-list-layout">
     <CurrentViewMode.Provider value={ listMode }>
       <div className="shopping-list-header">
-        <span className="list-title">Shopping list Title</span>
-
+        <span className="list-title">{ listData.title }</span>
         <button className="btn" onClick={ toggleMode }>
           <FontAwesomeIcon icon={ listMode === ViewMode.Default ? faPen : faFloppyDisk } />
         </button>
@@ -59,7 +94,7 @@ const ShoppingList = () => {
 
           <tbody>
             {
-              listData?.length ? listData.map((data, index) => {
+              listData?.data?.length ? listData.data?.map((data, index) => {
                 return <ShoppingListRow key={ index } data={ data } onDelete={ () => deleteItem(data.id) } />
               }) : null
             }

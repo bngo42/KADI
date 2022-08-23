@@ -1,17 +1,30 @@
-import ShoppingListItem from 'components/shopping-list-item/shopping-list-item';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+
+import ShoppingListItem from 'components/shopping-list-item/shopping-list-item';
+
+import {ShoppingListData} from "models/shopping-list.model";
+import {getParsedLocalStorageItem} from "utils/storage.utils";
+
 import './shopping-list-grid.scss';
 
 const ShoppingListGrid = () => {
-    const [ dataList ] = useState([1,2,3,4,5,6,7,8,9,10]);
+    const [dataList, setDataList] = useState<ShoppingListData[]>([]);
+
+    useEffect(() => {
+      const shoppingLists = getParsedLocalStorageItem('shopping-lists');
+
+      if (shoppingLists?.length) {
+        setDataList(shoppingLists);
+      }
+    }, []);
 
     return  <div className="shopping-list-grid">
         {
-            dataList?.length ? dataList.map((item, index) => (
-                <Link to={ '/list/' } key={ index }>
-                    <ShoppingListItem/>
-                </Link>
+            dataList?.length ? dataList.map((list: ShoppingListData, index: number) => (
+              <Link key={ index } to={ `/list/${ list.id }` }>
+                <ShoppingListItem data={list}/>
+              </Link>
             )) : <span>Aucune liste de course a afficher.</span>
         }
     </div>
