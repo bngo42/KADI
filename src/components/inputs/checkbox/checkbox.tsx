@@ -1,9 +1,9 @@
 import './checkbox.scss';
 
 export interface CheckBoxProps {
-  label: any;
   value: any;
-  onValueChange: () => any
+  label?: any;
+  onValueChange?: () => any
 }
 
 const Checkbox = (props: CheckBoxProps) => {

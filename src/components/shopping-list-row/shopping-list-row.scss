@@ -5,7 +5,8 @@
   user-select: none;
 
   td {
-    padding: 10px 5px;
+    padding: 5px;
+    white-space: nowrap;
   }
 
   .delete-btn {
@@ -14,7 +15,12 @@
     height: 20px;
     cursor: pointer;
 
-    &:hover {
+    &.disabled {
+      color: grey;
+      cursor: unset;
+    }
+
+    &:not(.disabled):hover {
       opacity: 0.5;
     }
   }

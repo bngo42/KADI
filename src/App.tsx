@@ -5,8 +5,6 @@ import ShoppingListGrid from 'components/shopping-list-grid/shopping-list-grid';
 import ShoppingList from "components/shopping-list/shopping-list";
 import {getParsedLocalStorageItem, setLocalStorageItem} from "utils/storage.utils";
 
-import {tempData} from "models/shopping-list.model";
-
 import Logo from 'assets/logo.png';
 import './App.scss';
 
@@ -18,7 +16,7 @@ function App() {
     const list = getParsedLocalStorageItem('shopping-lists');
 
     if (!list) {
-      setLocalStorageItem('shopping-lists', [tempData]);
+      setLocalStorageItem('shopping-lists', []);
     }
   }, []);
   useEffect(() => setCurrentLocation(location.pathname), [location]);

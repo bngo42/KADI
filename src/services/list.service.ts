@@ -35,7 +35,7 @@ const ListService = {
       uid.push(ALPH_NUM[Math.round((Math.random() * ALPH_NUM.length))]);
     }
 
-    return uid.join();
+    return uid.join('');
   },
   getUID: (length: number = 5): string => {
     let id = ListService.getID(length);

@@ -3,11 +3,14 @@ import {useContext, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
-import Checkbox from "components/checkbox/checkbox";
-import {CurrentViewMode} from "components/shopping-list/shopping-list";
+import Checkbox from "components/inputs/checkbox/checkbox";
+import Input from "components/inputs/input/input";
 
+import {CurrentViewMode} from "components/shopping-list/shopping-list";
 import {ShoppingListRowData} from "models/shopping-list.model";
 import {ViewMode} from "models/view.model";
+import {InputType} from "components/inputs/input/input.model";
+
 
 import './shopping-list-row.scss';
 
@@ -20,25 +23,37 @@ interface ShoppingListRowProps {
 const ShoppingListRow = (props: ShoppingListRowProps) => {
   const Current = useContext(CurrentViewMode);
   const [isChecked, setIsChecked] = useState(false);
+  const [ price, setPrice ] = useState(props.data.price);
+  const [ quantity, setQuantity ] = useState(props.data.price);
+  const [ name, setName ] = useState(props.data.name);
   const handleChange = () => setIsChecked(isChecked);
+  const deleteItem = () => {
+    if (props.itemCount > 1) {
+      props.onDelete();
+    }
+  };
 
   return <tr className="shopping-list-row">
     {
-      Current === ViewMode.Default ? <>
-        <td><Checkbox label={ props.data.name } value={isChecked} onValueChange={handleChange}/></td>
-        <td>{ props.data.quantity }</td>
-        <td>{ props.data.price }</td>
+      Current === ViewMode.Default ?
+      <>
+        <td><Checkbox label={ name } value={isChecked} onValueChange={handleChange}/></td>
+        <td>{ quantity }</td>
+        <td>{ price }</td>
       </>
       :
       <>
         <td>
           <div className="product-name">
-            { (props.itemCount > 1) && <FontAwesomeIcon icon={ faXmark } className="delete-btn" onClick={ props.onDelete }/> }
-            <span className="product-label">{ props.data.name }</span>
+            <FontAwesomeIcon
+              icon={ faXmark }
+              className={`delete-btn ${ props.itemCount > 1 ? '' : 'disabled' }`}
+              onClick={ deleteItem }/>
+            <Input type={ InputType.Text } value={ name } onValueChange={ (newName) => setName(newName)}/>
           </div>
         </td>
-        <td>Edit 2</td>
-        <td>Edit 3</td>
+        <td><Input type={ InputType.Number } value={ quantity } onValueChange={ (newQuantity) => setQuantity(newQuantity)}/></td>
+        <td><Input type={ InputType.Number } value={ price } onValueChange={ (newPrice) => setPrice(newPrice)}/></td>
       </>
     }
   </tr>

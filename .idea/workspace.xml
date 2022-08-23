@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Pass data to row">
+    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Block row deletion if there's only one item">
+      <change afterPath="$PROJECT_DIR$/src/components/inputs/input/input.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/inputs/input/input.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/inputs/input/input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/checkbox/checkbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputs/checkbox/checkbox.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/checkbox/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputs/checkbox/checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/shopping-list.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/shopping-list.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/list.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/list.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +77,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/inputs" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/assets" />
     </key>
@@ -84,7 +94,7 @@
       <workItem from="1659622879096" duration="598000" />
       <workItem from="1659690058576" duration="4704000" />
       <workItem from="1660228671351" duration="598000" />
-      <workItem from="1660422625692" duration="79821000" />
+      <workItem from="1660422625692" duration="87766000" />
     </task>
     <task id="LOCAL-00001" summary="Update project with typescript &amp; scss">
       <created>1660484953834</created>
@@ -184,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661268910179</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Block row deletion if there's only one item">
+      <created>1661270393532</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1661270393532</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +231,7 @@
     <MESSAGE value="Add delete button on row" />
     <MESSAGE value="Pass list data as props" />
     <MESSAGE value="Pass data to row" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pass data to row" />
+    <MESSAGE value="Block row deletion if there's only one item" />
+    <option name="LAST_COMMIT_MESSAGE" value="Block row deletion if there's only one item" />
   </component>
 </project>

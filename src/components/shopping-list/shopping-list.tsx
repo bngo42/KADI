@@ -74,9 +74,9 @@ const ShoppingList = () => {
   const toggleMode = () => {
     if (listMode === ViewMode.Default) {
       setListMode(ViewMode.Edit);
-      ListService.saveList(listData);
     } else {
       setListMode(ViewMode.Default);
+      ListService.saveList(listData);
     }
   }
 
