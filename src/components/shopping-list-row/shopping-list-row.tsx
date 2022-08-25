@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,7 @@ import './shopping-list-row.scss';
 
 interface ShoppingListRowProps {
   onDelete: () => void
+  onCheckChange?: (val: boolean) => void,
   data: ShoppingListRowData
   itemCount: number;
 }
@@ -26,18 +27,23 @@ const ShoppingListRow = (props: ShoppingListRowProps) => {
   const [ price, setPrice ] = useState(props.data.price);
   const [ quantity, setQuantity ] = useState(props.data.price);
   const [ name, setName ] = useState(props.data.name);
-  const handleChange = () => setIsChecked(isChecked);
   const deleteItem = () => {
     if (props.itemCount > 1) {
       props.onDelete();
     }
   };
 
+  useEffect(() => {
+    if (props.onCheckChange) {
+      props.onCheckChange(isChecked);
+    }
+  }, [isChecked]);
+
   return <tr className="shopping-list-row">
     {
       Current === ViewMode.Default ?
       <>
-        <td><Checkbox label={ name } value={isChecked} onValueChange={handleChange}/></td>
+        <td><Checkbox label={ name } value={isChecked} onValueChange={ setIsChecked }/></td>
         <td>{ quantity }</td>
         <td>{ price }</td>
       </>

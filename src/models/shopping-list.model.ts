@@ -10,4 +10,5 @@ export interface ShoppingListRowData {
   name: string;
   quantity: number;
   price: number;
+  checked: boolean;
 }

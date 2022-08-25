@@ -7,7 +7,7 @@ import {faFloppyDisk, faPen, faPlus} from '@fortawesome/free-solid-svg-icons';
 import ShoppingListRow from "components/shopping-list-row/shopping-list-row";
 
 import ListService from "services/list.service";
-import {ShoppingListData} from "models/shopping-list.model";
+import {ShoppingListData, ShoppingListRowData} from "models/shopping-list.model";
 import {ViewMode} from "models/view.model";
 
 import './shopping-list.scss';
@@ -71,6 +71,13 @@ const ShoppingList = () => {
     }
   };
 
+  const onCheckChange = (val: boolean, itemData: ShoppingListRowData): void => {
+    const newItemData = {...itemData};
+
+    newItemData.checked = val;
+    ListService.updateRow(listData.id!, newItemData);
+  };
+
   const toggleMode = () => {
     if (listMode === ViewMode.Default) {
       setListMode(ViewMode.Edit);
@@ -106,7 +113,8 @@ const ShoppingList = () => {
                           key={index}
                           data={data}
                           onDelete={() => deleteItem(data.id)}
-                          itemCount={listData.data?.length || 0}/>
+                          itemCount={listData.data?.length || 0}
+                          onCheckChange={ val => onCheckChange(val, data) }/>
               }) : null
             }
           </tbody>
