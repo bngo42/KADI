@@ -1,5 +1,5 @@
-import './checkbox.scss';
 import {useEffect, useState} from "react";
+import './checkbox.scss';
 
 export interface CheckBoxProps {
   value: any;
@@ -8,7 +8,7 @@ export interface CheckBoxProps {
 }
 
 const Checkbox = (props: CheckBoxProps) => {
-  const [value, setValue] = useState(props.value);
+  const [ value, setValue ] = useState(props.value);
 
   useEffect(() => {
     if (props.onValueChange) {
@@ -17,7 +17,7 @@ const Checkbox = (props: CheckBoxProps) => {
   }, [value]);
 
   return <label className="checkbox">
-    <input type="checkbox" value={ value } onChange={ e => setValue(e.target.checked) }/>
+    <input type="checkbox" checked={ value } onChange={ e => setValue(e.target.checked) }/>
     <span className="checkbox-label">{ props.label }</span>
   </label>
 }

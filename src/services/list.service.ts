@@ -53,19 +53,6 @@ const ListService = {
       price,
       checked: false
     }
-  },
-  updateRow: (listId: string, rowData: ShoppingListRowData): void => {
-    const shoppingLists: ShoppingListData[] = getParsedLocalStorageItem('shopping-lists');
-    const currentListIndex = shoppingLists.findIndex(list => list.id === listId);
-
-    if (currentListIndex >= 0) {
-      const rowIndex = shoppingLists[currentListIndex]?.data?.findIndex(data => data.id === rowData.id);
-
-      if (rowIndex && rowIndex >= 0){
-        shoppingLists[currentListIndex].data![rowIndex] = rowData;
-        ListService.saveList(shoppingLists[currentListIndex]);
-      }
-    }
   }
 };
 

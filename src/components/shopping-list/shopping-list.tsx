@@ -8,13 +8,11 @@ import ShoppingListRow from "components/shopping-list-row/shopping-list-row";
 
 import ListService from "services/list.service";
 import {ShoppingListData, ShoppingListRowData} from "models/shopping-list.model";
+import {ShoppingListRowValueConfig} from "components/shopping-list-row/shopping-list-row.model";
 import {ViewMode} from "models/view.model";
+import {ShoppingListRouteParams} from "./shopping-list.model";
 
 import './shopping-list.scss';
-
-type ShoppingListRouteParams = {
-  listId: string;
-}
 
 export const CurrentViewMode = createContext(ViewMode.Edit);
 
@@ -37,7 +35,7 @@ const ShoppingList = () => {
       if (currentList) {
         setListData(currentList);
       } else if (listId === 'new') {
-        const newListItem = ListService.getNewItemRow('Nouveau produit', 1, 1);
+        const newListItem = ListService.getNewItemRow('Nouveau produit', 1, 0);
         const newListData = ListService.createListObject('Nouvelle liste', [newListItem]);
 
         setListMode(ViewMode.Edit);
@@ -71,11 +69,27 @@ const ShoppingList = () => {
     }
   };
 
-  const onCheckChange = (val: boolean, itemData: ShoppingListRowData): void => {
-    const newItemData = {...itemData};
+  const onRowValueChange = (val: ShoppingListRowValueConfig, itemData: ShoppingListRowData): void => {
+    const newItemData = {...itemData, ...val};
+    const newListData = {...listData};
+    const itemIndex = newListData.data!.findIndex(item => item.id === newItemData.id);
 
-    newItemData.checked = val;
-    ListService.updateRow(listData.id!, newItemData);
+    if (itemIndex >= 0) {
+      newListData.data![itemIndex] = newItemData;
+      setListData(newListData);
+    }
+  };
+
+  const onCheckboxChange = (state: boolean, itemData: ShoppingListRowData): void => {
+    const newItemData = {...itemData};
+    const newListData = {...listData};
+    const itemIndex = newListData.data!.findIndex(item => item.id === newItemData.id);
+
+    if (itemIndex >= 0) {
+      newItemData.checked = state;
+      newListData.data![itemIndex] = newItemData;
+      ListService.saveList(newListData);
+    }
   };
 
   const toggleMode = () => {
@@ -114,7 +128,8 @@ const ShoppingList = () => {
                           data={data}
                           onDelete={() => deleteItem(data.id)}
                           itemCount={listData.data?.length || 0}
-                          onCheckChange={ val => onCheckChange(val, data) }/>
+                          onCheckboxChange={ val => onCheckboxChange(val, data) }
+                          onValueChange={ val => onRowValueChange(val, data) }/>
               }) : null
             }
           </tbody>

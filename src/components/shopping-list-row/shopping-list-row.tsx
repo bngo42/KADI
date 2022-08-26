@@ -7,23 +7,15 @@ import Checkbox from "components/inputs/checkbox/checkbox";
 import Input from "components/inputs/input/input";
 
 import {CurrentViewMode} from "components/shopping-list/shopping-list";
-import {ShoppingListRowData} from "models/shopping-list.model";
 import {ViewMode} from "models/view.model";
 import {InputType} from "components/inputs/input/input.model";
-
+import {ShoppingListRowProps} from "./shopping-list-row.model";
 
 import './shopping-list-row.scss';
 
-interface ShoppingListRowProps {
-  onDelete: () => void
-  onCheckChange?: (val: boolean) => void,
-  data: ShoppingListRowData
-  itemCount: number;
-}
-
 const ShoppingListRow = (props: ShoppingListRowProps) => {
   const Current = useContext(CurrentViewMode);
-  const [isChecked, setIsChecked] = useState(false);
+  const [ isChecked, setIsChecked ] = useState(props.data.checked);
   const [ price, setPrice ] = useState(props.data.price);
   const [ quantity, setQuantity ] = useState(props.data.price);
   const [ name, setName ] = useState(props.data.name);
@@ -34,16 +26,22 @@ const ShoppingListRow = (props: ShoppingListRowProps) => {
   };
 
   useEffect(() => {
-    if (props.onCheckChange) {
-      props.onCheckChange(isChecked);
+    if (props.onCheckboxChange) {
+      props.onCheckboxChange(isChecked);
     }
-  }, [isChecked]);
+  }, [isChecked])
+
+  useEffect(() => {
+    if (props.onValueChange) {
+      props.onValueChange({ name, price, quantity });
+    }
+  }, [name, price, quantity]);
 
   return <tr className="shopping-list-row">
     {
       Current === ViewMode.Default ?
       <>
-        <td><Checkbox label={ name } value={isChecked} onValueChange={ setIsChecked }/></td>
+        <td><Checkbox label={ name } value={ isChecked } onValueChange={ setIsChecked }/></td>
         <td>{ quantity }</td>
         <td>{ price }</td>
       </>
