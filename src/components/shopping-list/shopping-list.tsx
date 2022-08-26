@@ -22,7 +22,8 @@ const ShoppingList = () => {
   const { listId } = useParams<ShoppingListRouteParams>();
 
   const [ listData, setListData ] = useState<ShoppingListData>({});
-  const [ listMode, setListMode ] = useState(ViewMode.Default);
+  const [ listMode, setListMode ] = useState<ViewMode>(ViewMode.Default);
+  const [ totalPrice, setTotalPrice] = useState<number>(0);
 
   useEffect(() => {
     const data: any = location.state;
@@ -45,6 +46,15 @@ const ShoppingList = () => {
       }
     }
   }, [location]);
+
+  useEffect(() => {
+    const newTotal = listData.data?.reduce((prev, item) => {
+      return prev + (item.checked ? (item.price * item.quantity) : 0);
+    }, 0) || 0;
+    const fixedValue = (newTotal % 1 !== 0) ? Number(newTotal.toFixed(2)) : newTotal;
+
+    setTotalPrice(fixedValue);
+  }, [listData, listMode]);
 
   const addItem = () => {
     const newProduct = ListService.getNewItemRow('Nouveau produit', 1, 0);
@@ -88,11 +98,12 @@ const ShoppingList = () => {
     if (itemIndex >= 0) {
       newItemData.checked = state;
       newListData.data![itemIndex] = newItemData;
+      setListData(newListData);
       ListService.saveList(newListData);
     }
   };
 
-  const toggleMode = () => {
+  const toggleMode = (): void => {
     if (listMode === ViewMode.Default) {
       setListMode(ViewMode.Edit);
     } else {
@@ -143,10 +154,13 @@ const ShoppingList = () => {
           </button>
         }
 
-        <div className="shopping-list-total">
-          <span className="total-label">TOTAL:</span>
-          <span className="total-value">{ '30$' }</span>
-        </div>
+        {
+          listMode !== ViewMode.Edit &&
+          <div className="shopping-list-total">
+            <span className="total-label">TOTAL:</span>
+            <span className="total-value">{`${totalPrice}€`}</span>
+          </div>
+        }
       </div>
     </CurrentViewMode.Provider>
   </div>

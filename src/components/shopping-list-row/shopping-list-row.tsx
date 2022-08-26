@@ -17,7 +17,7 @@ const ShoppingListRow = (props: ShoppingListRowProps) => {
   const Current = useContext(CurrentViewMode);
   const [ isChecked, setIsChecked ] = useState(props.data.checked);
   const [ price, setPrice ] = useState(props.data.price);
-  const [ quantity, setQuantity ] = useState(props.data.price);
+  const [ quantity, setQuantity ] = useState(props.data.quantity);
   const [ name, setName ] = useState(props.data.name);
   const deleteItem = () => {
     if (props.itemCount > 1) {
