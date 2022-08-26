@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Update save data system">
+    <list default="true" id="f83b0368-c778-4d75-8143-7ad56fde8e61" name="Changes" comment="Update total price">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list-row/shopping-list-row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shopping-list/shopping-list.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
       <workItem from="1659690058576" duration="4704000" />
       <workItem from="1660228671351" duration="598000" />
       <workItem from="1660422625692" duration="97252000" />
-      <workItem from="1661431851619" duration="7873000" />
+      <workItem from="1661431851619" duration="8075000" />
     </task>
     <task id="LOCAL-00001" summary="Update project with typescript &amp; scss">
       <created>1660484953834</created>
@@ -215,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661517582324</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update total price">
+      <created>1661518781184</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1661518781184</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +255,7 @@
     <MESSAGE value="Add edit inputs&#10;Fix save state&#10;Still some issues" />
     <MESSAGE value="Update checkbox state" />
     <MESSAGE value="Update save data system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update save data system" />
+    <MESSAGE value="Update total price" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update total price" />
   </component>
 </project>
