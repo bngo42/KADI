@@ -1,3 +1,5 @@
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import Paper from 'assets/paper.png';
 
 import {ShoppingListData} from "models/shopping-list.model";
@@ -5,7 +7,8 @@ import {ShoppingListData} from "models/shopping-list.model";
 import './shopping-list-item.scss';
 
 interface ShoppingListItemProps {
-  data: ShoppingListData
+  data: ShoppingListData,
+  onDeleteList: () => void
 }
 
 const formatDate = (date: string | undefined) => {
@@ -13,9 +16,19 @@ const formatDate = (date: string | undefined) => {
 }
 
 const ShoppingListItem = (props: ShoppingListItemProps) => {
+    const deleteListItem = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      if (props.onDeleteList) {
+        props.onDeleteList();
+      }
+    }
     return <div className="shopping-list-item">
         <div className="list-header">
             <img height="100%" src={ Paper } alt="Liste"/>
+
+            <div className="delete-list-btn" onClick={ (e) => deleteListItem(e) }>
+              <FontAwesomeIcon icon={ faTrashCan }/>
+            </div>
         </div>
         <div className="list-description">
             <span className="list-name">{ props.data.title }</span>

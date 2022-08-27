@@ -20,6 +20,14 @@ const ListService = {
     }
     setLocalStorageItem('shopping-lists', shoppingLists);
   },
+  deleteList: (listId: string): ShoppingListData[] => {
+    let shoppingLists: ShoppingListData[] = getParsedLocalStorageItem('shopping-lists');
+
+    shoppingLists = shoppingLists.filter(list => list.id !== listId);
+    setLocalStorageItem('shopping-lists', shoppingLists);
+
+    return shoppingLists;
+  },
   createListObject: (title: string, data: ShoppingListRowData[]): ShoppingListData => {
     return {
       id: ListService.getUID(),
