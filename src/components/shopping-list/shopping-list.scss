@@ -8,8 +8,24 @@
 
     .list-title {
       font-weight: bold;
-      font-size: 32pt;
+      font-size: 30pt;
       text-transform: uppercase;
+      width: 80%;
+      height: 50px;
+
+      .input-style {
+        background-color: rgba(0, 0, 0, 0.25);
+        border: none;
+        padding: 0 5px;
+
+        Input {
+          color: white;
+          font-size: 30pt;
+          font-weight: bold;
+          text-transform: uppercase;
+          padding: 0;
+        }
+      }
     }
 
     .btn {

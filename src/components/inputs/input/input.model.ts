@@ -1,7 +1,7 @@
 export interface InputProps {
   value: any;
   type: InputType;
-  onValueChange: (e: any) => any
+  onValueChange?: (e: any) => any
   placeholder?: string;
 }
 

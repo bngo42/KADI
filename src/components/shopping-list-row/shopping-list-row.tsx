@@ -6,15 +6,14 @@ import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import Checkbox from "components/inputs/checkbox/checkbox";
 import Input from "components/inputs/input/input";
 
-import {CurrentViewMode} from "components/shopping-list/shopping-list";
-import {ViewMode} from "models/view.model";
+import {inEditMode} from "components/shopping-list/shopping-list";
 import {InputType} from "components/inputs/input/input.model";
 import {ShoppingListRowProps} from "./shopping-list-row.model";
 
 import './shopping-list-row.scss';
 
 const ShoppingListRow = (props: ShoppingListRowProps) => {
-  const Current = useContext(CurrentViewMode);
+  const isInEditMode = useContext(inEditMode);
   const [ isChecked, setIsChecked ] = useState(props.data.checked);
   const [ price, setPrice ] = useState(props.data.price);
   const [ quantity, setQuantity ] = useState(props.data.quantity);
@@ -26,20 +25,14 @@ const ShoppingListRow = (props: ShoppingListRowProps) => {
   };
 
   useEffect(() => {
-    if (props.onCheckboxChange) {
-      props.onCheckboxChange(isChecked);
-    }
-  }, [isChecked])
-
-  useEffect(() => {
     if (props.onValueChange) {
-      props.onValueChange({ name, price, quantity });
+      props.onValueChange({ name, price, quantity, checked: isChecked });
     }
-  }, [name, price, quantity]);
+  }, [name, price, quantity, isChecked]);
 
   return <tr className="shopping-list-row">
     {
-      Current === ViewMode.Default ?
+      !isInEditMode ?
       <>
         <td><Checkbox label={ name } value={ isChecked } onValueChange={ setIsChecked }/></td>
         <td>{ quantity }</td>

@@ -28,9 +28,9 @@ const ListService = {
 
     return shoppingLists;
   },
-  createListObject: (title: string, data: ShoppingListRowData[]): ShoppingListData => {
+  createListObject: (title: string, data: ShoppingListRowData[], forceId?: string): ShoppingListData => {
     return {
-      id: ListService.getUID(),
+      id: forceId || ListService.getUID(),
       date: new Date().toString(),
       title,
       data
