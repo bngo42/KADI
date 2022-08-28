@@ -1,5 +1,5 @@
 import {getParsedLocalStorageItem, setLocalStorageItem} from "utils/storage.utils";
-import {ShoppingListData, ShoppingListRowData} from "../models/shopping-list.model";
+import {ShoppingListData, ShoppingListRowData} from "models/shopping-list.model";
 
 const ListService = {
   getList: (listId: string | undefined): ShoppingListData | undefined => {
