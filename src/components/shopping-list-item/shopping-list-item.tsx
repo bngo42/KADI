@@ -2,6 +2,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import Paper from 'assets/paper.png';
 
+import SpanOverflow from "components/span-overflow/span-overflow";
+
 import {ShoppingListData} from "models/shopping-list.model";
 
 import './shopping-list-item.scss';
@@ -31,8 +33,8 @@ const ShoppingListItem = (props: ShoppingListItemProps) => {
             </div>
         </div>
         <div className="list-description">
-            <span className="list-name">{ props.data.title }</span>
-            <span className="list-date">{ formatDate(props.data.date) }</span>
+          <SpanOverflow><span className="list-name">{ props.data.title }</span></SpanOverflow>
+          <span className="list-date">{ formatDate(props.data.date) }</span>
         </div>
     </div>
 }

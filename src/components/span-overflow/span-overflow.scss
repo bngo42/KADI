@@ -1,0 +1,52 @@
+.span-overflow {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+
+  .span-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+  }
+
+  &:hover .span-tooltip{
+    opacity: 1;
+  }
+
+  .span-tooltip {
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    font-size: 10pt;
+    font-weight: normal;
+    color: black;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 500px;
+    transition: 0.1s opacity;
+    white-space: pre-wrap;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      top: -10px;
+      left: 50%;
+      z-index: -1;
+      clip-path: polygon(0 0, 100% 0, 0 100%, 0% 100%);
+      transform: translate(-50%) rotate(45deg);
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import SpanOverflow from "components/span-overflow/span-overflow";
 import './checkbox.scss';
 
 export interface CheckBoxProps {
@@ -18,7 +19,7 @@ const Checkbox = (props: CheckBoxProps) => {
 
   return <label className="checkbox">
     <input type="checkbox" checked={ value } onChange={ e => setValue(e.target.checked) }/>
-    <span className="checkbox-label">{ props.label }</span>
+    <SpanOverflow><span className="checkbox-label">{ props.label }</span></SpanOverflow>
   </label>
 }
 

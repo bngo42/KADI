@@ -6,14 +6,15 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import ShoppingListRow from "components/shopping-list-row/shopping-list-row";
 import Input from "components/inputs/input/input";
+import SpanOverflow from "components/span-overflow/span-overflow";
 
 import ListService from "services/list.service";
 import {ShoppingListData, ShoppingListRowData} from "models/shopping-list.model";
 import {ShoppingListRouteParams, ShoppingListRouteState} from "./shopping-list.model";
 import {InputType} from "components/inputs/input/input.model";
+import {ShoppingListRowValueConfig} from "components/shopping-list-row/shopping-list-row.model";
 
 import './shopping-list.scss';
-import {ShoppingListRowValueConfig} from "../shopping-list-row/shopping-list-row.model";
 
 export const inEditMode = createContext(false);
 
@@ -82,7 +83,6 @@ const ShoppingList = () => {
     if (editMode) {
       const newListData = {...listData};
 
-      debugger;
       newListData.title = listTitle;
       ListService.saveList(newListData);
       setEditMode(false);
@@ -97,7 +97,7 @@ const ShoppingList = () => {
         <span className="list-title">
           {
             !editMode ?
-            <span>{ listTitle }</span> :
+            <SpanOverflow>{ listTitle }</SpanOverflow> :
             <Input value={ listTitle } type={ InputType.Text } onValueChange={ (newTitle) => setListTitle(newTitle) }/>
           }
         </span>

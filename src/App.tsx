@@ -1,5 +1,5 @@
 import {Link, Navigate, Route, Routes, useLocation, useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 import ShoppingListGrid from 'components/shopping-list-grid/shopping-list-grid';
 import ShoppingList from "components/shopping-list/shopping-list";
@@ -12,7 +12,6 @@ import './App.scss';
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [currentLocation, setCurrentLocation] = useState('/');
   const navigateToNewList = (): void => {
     const newUID = ListService.getUID();
     navigate(`/list/${ newUID }`, {
@@ -30,14 +29,13 @@ function App() {
       setLocalStorageItem('shopping-lists', []);
     }
   }, []);
-  useEffect(() => setCurrentLocation(location.pathname), [location]);
 
   return (
     <div className="wrapper">
       <header className="header">
         <img height="75%" src={ Logo } alt="Logo"/>
         {
-          currentLocation === '/' ?
+          location.pathname === '/' ?
           <button className="btn" onClick={ navigateToNewList }>Ajouter une liste</button>
           : <Link className="btn" to="/">Retour</Link>
         }

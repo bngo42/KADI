@@ -33,6 +33,8 @@
 
   .checkbox-label {
     height: 100%;
+    max-width: 100%;
+    width: max-content;
     user-select: none;
     margin-left: 5px;
   }
