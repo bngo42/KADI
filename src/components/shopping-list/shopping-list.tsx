@@ -65,6 +65,15 @@ const ShoppingList = () => {
     setListData(newListData);
   };
 
+  const deleteItem = (rowId: string) => {
+    const newListData = {...listData};
+
+    if (newListData.data) {
+      newListData.data = newListData.data.filter(row => row.id !== rowId);
+      setListData(newListData);
+    }
+  };
+
   const onRowValueChange = (newData: ShoppingListRowValueConfig, itemData: ShoppingListRowData) => {
     const newItemData = {...itemData, ...newData};
     const newListData = {...listData};
@@ -122,7 +131,7 @@ const ShoppingList = () => {
                 return <ShoppingListRow
                           key={index}
                           data={data}
-                          onDelete={() => ListService.deleteList(data.id)}
+                          onDelete={() => deleteItem(data.id)}
                           itemCount={listData.data?.length || 0}
                           onValueChange={ val => onRowValueChange(val, data) }/>
               }) : null
