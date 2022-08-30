@@ -17,10 +17,12 @@ const Checkbox = (props: CheckBoxProps) => {
     }
   }, [value]);
 
-  return <label className="checkbox">
-    <input type="checkbox" checked={ value } onChange={ e => setValue(e.target.checked) }/>
-    <SpanOverflow><span className="checkbox-label">{ props.label }</span></SpanOverflow>
-  </label>
+  return (
+    <label className="checkbox">
+      <input type="checkbox" checked={ value } onChange={ e => setValue(e.target.checked) }/>
+      <SpanOverflow><span className="checkbox-label">{ props.label }</span></SpanOverflow>
+    </label>
+  )
 }
 
 export default Checkbox;

@@ -30,30 +30,32 @@ const ShoppingListRow = (props: ShoppingListRowProps) => {
     }
   }, [name, price, quantity, isChecked]);
 
-  return <tr className="shopping-list-row">
-    {
-      !isInEditMode ?
-      <>
-        <td><Checkbox label={ name } value={ isChecked } onValueChange={ setIsChecked }/></td>
-        <td>{ quantity }</td>
-        <td>{ price }</td>
-      </>
-      :
-      <>
-        <td>
-          <div className="product-name">
-            <FontAwesomeIcon
-              icon={ faXmark }
-              className={`delete-btn ${ props.itemCount > 1 ? '' : 'disabled' }`}
-              onClick={ deleteItem }/>
-            <Input type={ InputType.Text } value={ name } onValueChange={ (newName) => setName(newName)}/>
-          </div>
-        </td>
-        <td><Input type={ InputType.Number } value={ quantity } onValueChange={ (newQuantity) => setQuantity(newQuantity)}/></td>
-        <td><Input type={ InputType.Number } value={ price } onValueChange={ (newPrice) => setPrice(newPrice)}/></td>
-      </>
-    }
-  </tr>
+  return (
+    <tr className="shopping-list-row">
+      {
+        !isInEditMode ?
+        <>
+          <td><Checkbox label={ name } value={ isChecked } onValueChange={ setIsChecked }/></td>
+          <td>{ quantity }</td>
+          <td>{ price }</td>
+        </>
+        :
+        <>
+          <td>
+            <div className="product-name">
+              <FontAwesomeIcon
+                icon={ faXmark }
+                className={`delete-btn ${ props.itemCount > 1 ? '' : 'disabled' }`}
+                onClick={ deleteItem }/>
+              <Input type={ InputType.Text } value={ name } onValueChange={ (newName) => setName(newName)}/>
+            </div>
+          </td>
+          <td><Input type={ InputType.Number } value={ quantity } onValueChange={ (newQuantity) => setQuantity(newQuantity)}/></td>
+          <td><Input type={ InputType.Number } value={ price } onValueChange={ (newPrice) => setPrice(newPrice)}/></td>
+        </>
+      }
+    </tr>
+  )
 }
 
 export default ShoppingListRow;

@@ -8,12 +8,14 @@ const Input = (props: InputProps) => {
     }
   };
 
-  return <div className="input-style">
-    <input
-      type={ props.type }
-      value={ props.value }
-      onChange={ (e) => handleInputChange(e.target.value)}/>
-  </div>
+  return (
+    <div className="input-style">
+      <input
+        type={ props.type }
+        value={ props.value }
+        onChange={ (e) => handleInputChange(e.target.value)}/>
+    </div>
+  )
 }
 
 export default Input;

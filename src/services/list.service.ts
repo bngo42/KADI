@@ -7,7 +7,19 @@ const ListService = {
       return undefined;
     }
     const shoppingLists: ShoppingListData[] = getParsedLocalStorageItem('shopping-lists');
-    return (shoppingLists?.length) ? shoppingLists?.find(list => list.id === listId) : undefined;
+    const listData = (shoppingLists?.length) ? shoppingLists?.find(list => list.id === listId) : undefined;
+
+    if (listData?.data) {
+      listData.data = listData.data.map(data => {
+        const parsedValues = {
+          quantity: Number(data.quantity),
+          price: Number(data.price)
+        };
+
+        return {...data, ...parsedValues};
+      });
+    }
+    return listData;
   },
   saveList: (listData: ShoppingListData): void => {
     const shoppingLists: ShoppingListData[] = getParsedLocalStorageItem('shopping-lists');

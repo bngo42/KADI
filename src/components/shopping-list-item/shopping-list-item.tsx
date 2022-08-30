@@ -24,19 +24,21 @@ const ShoppingListItem = (props: ShoppingListItemProps) => {
         props.onDeleteList();
       }
     }
-    return <div className="shopping-list-item">
-        <div className="list-header">
-            <img height="100%" src={ Paper } alt="Liste"/>
+    return (
+      <div className="shopping-list-item">
+          <div className="list-header">
+              <img height="100%" src={ Paper } alt="Liste"/>
 
-            <div className="delete-list-btn" onClick={ (e) => deleteListItem(e) }>
-              <FontAwesomeIcon icon={ faTrashCan }/>
-            </div>
-        </div>
-        <div className="list-description">
-          <SpanOverflow><span className="list-name">{ props.data.title }</span></SpanOverflow>
-          <span className="list-date">{ formatDate(props.data.date) }</span>
-        </div>
-    </div>
+              <div className="delete-list-btn" onClick={ (e) => deleteListItem(e) }>
+                <FontAwesomeIcon icon={ faTrashCan }/>
+              </div>
+          </div>
+          <div className="list-description">
+            <SpanOverflow><span className="list-name">{ props.data.title }</span></SpanOverflow>
+            <span className="list-date">{ formatDate(props.data.date) }</span>
+          </div>
+      </div>
+    )
 }
 
 export default ShoppingListItem;

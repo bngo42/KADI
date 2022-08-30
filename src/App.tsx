@@ -9,7 +9,7 @@ import ListService from "./services/list.service";
 import Logo from 'assets/logo.png';
 import './App.scss';
 
-function App() {
+const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const navigateToNewList = (): void => {

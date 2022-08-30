@@ -24,15 +24,17 @@ const ShoppingListGrid = () => {
       }
     }, []);
 
-    return  <div className="shopping-list-grid">
-        {
-            dataList?.length ? dataList.map((list: ShoppingListData, index: number) => (
-              <Link key={ index } to={ `/list/${ list.id }` }>
-                <ShoppingListItem data={list} onDeleteList={ () => deleteList(list.id!) }/>
-              </Link>
-            )) : <span>Aucune liste de course a afficher.</span>
-        }
-    </div>
+    return (
+      <div className="shopping-list-grid">
+          {
+              dataList?.length ? dataList.map((list: ShoppingListData, index: number) => (
+                <Link key={ index } to={ `/list/${ list.id }` }>
+                  <ShoppingListItem data={list} onDeleteList={ () => deleteList(list.id!) }/>
+                </Link>
+              )) : <span>Aucune liste de course a afficher.</span>
+          }
+      </div>
+    )
 }
 
 export default ShoppingListGrid;

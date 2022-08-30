@@ -51,10 +51,10 @@ const ShoppingList = () => {
 
   useEffect(() => {
     const newPrice = listData.data?.reduce((prev, current) => {
-      return prev + (current.checked ? (current.price * current.quantity) : 0);
+      return prev + (current.checked ? (Number(current.price) * current.quantity) : 0);
     }, 0);
 
-    setTotalPrice(previousPrice => newPrice || previousPrice);
+    setTotalPrice(previousPrice => Number((newPrice || previousPrice).toFixed(2)));
   }, [listData]);
 
   const addItem = () => {
@@ -100,60 +100,62 @@ const ShoppingList = () => {
     }
   };
 
-  return <div className="shopping-list-layout">
-    <inEditMode.Provider value={ editMode }>
-      <div className="shopping-list-header">
-        <span className="list-title">
-          {
-            !editMode ?
-            <SpanOverflow>{ listTitle }</SpanOverflow> :
-            <Input value={ listTitle } type={ InputType.Text } onValueChange={ (newTitle) => setListTitle(newTitle) }/>
-          }
-        </span>
-        <button className="btn" onClick={ toggleMode }>
-          <FontAwesomeIcon icon={ !editMode ? faPen : faFloppyDisk } />
-        </button>
-      </div>
-
-      <div className="shopping-list">
-        <table>
-          <thead>
-            <tr>
-              <th style={{ width: '70%' }}>Produit</th>
-              <th style={{ width: '15%' }}>Quantité</th>
-              <th style={{ width: '15%' }}>Prix</th>
-            </tr>
-          </thead>
-
-          <tbody>
+  return (
+    <div className="shopping-list-layout">
+      <inEditMode.Provider value={ editMode }>
+        <div className="shopping-list-header">
+          <span className="list-title">
             {
-              listData?.data?.length ? listData.data?.map((data, index) => {
-                return <ShoppingListRow
-                          key={index}
-                          data={data}
-                          onDelete={() => deleteItem(data.id)}
-                          itemCount={listData.data?.length || 0}
-                          onValueChange={ val => onRowValueChange(val, data) }/>
-              }) : null
+              !editMode ?
+              <SpanOverflow>{ listTitle }</SpanOverflow> :
+              <Input value={ listTitle } type={ InputType.Text } onValueChange={ (newTitle) => setListTitle(newTitle) }/>
             }
-          </tbody>
-        </table>
+          </span>
+          <button className="btn" onClick={ toggleMode }>
+            <FontAwesomeIcon icon={ !editMode ? faPen : faFloppyDisk } />
+          </button>
+        </div>
 
-        {
-          editMode ?
-          <button className="shopping-list-add-button" onClick={ addItem }>
-            <FontAwesomeIcon icon={ faPlus } />
-            <span>Ajouter un élément</span>
-          </button> :
+        <div className="shopping-list">
+          <table>
+            <thead>
+              <tr>
+                <th style={{ width: '70%' }}>Produit</th>
+                <th style={{ width: '15%' }}>Quantité</th>
+                <th style={{ width: '15%' }}>Prix</th>
+              </tr>
+            </thead>
 
-          <div className="shopping-list-total">
-            <span className="total-label">TOTAL:</span>
-            <span className="total-value">{`${totalPrice}€`}</span>
-          </div>
-        }
-      </div>
-    </inEditMode.Provider>
-  </div>
+            <tbody>
+              {
+                listData?.data?.length && listData.data?.map((data, index) => {
+                  return <ShoppingListRow
+                    key={index}
+                    data={data}
+                    onDelete={() => deleteItem(data.id)}
+                    itemCount={listData.data?.length || 0}
+                    onValueChange={ val => onRowValueChange(val, data) }/>
+                })
+              }
+            </tbody>
+          </table>
+
+          {
+            editMode ?
+            <button className="shopping-list-add-button" onClick={ addItem }>
+              <FontAwesomeIcon icon={ faPlus } />
+              <span>Ajouter un élément</span>
+            </button> :
+
+            <div className="shopping-list-total">
+              <span className="total-label">TOTAL:</span>
+              <span className="total-value">{`${totalPrice}€`}</span>
+            </div>
+          }
+        </div>
+      </inEditMode.Provider>
+    </div>
+  )
 }
 
 export default ShoppingList;
